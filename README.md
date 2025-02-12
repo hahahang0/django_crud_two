@@ -1,0 +1,2 @@
+# django_crud_two
+Django_crud_in_details
