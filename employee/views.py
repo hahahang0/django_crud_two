@@ -6,7 +6,7 @@ from .forms import EmployeeForm
 # Create your views here.
 def getEmployees(request):
     employees = Employee.objects.all()
-    return render(request,'list.html',{'employees':employees})
+    return render(request,'employee/list.html',{'employees':employees})
 
 def createEmployee(request):
     if request.method=="POST":
@@ -17,7 +17,7 @@ def createEmployee(request):
         
     else: 
         form = EmployeeForm()
-    return render(request,'create.html',{'form':form})
+    return render(request,'employee/create.html',{'form':form})
 
 def updateEmployee(request,pk):
     employee = get_object_or_404(Employee,employee_id=pk)
