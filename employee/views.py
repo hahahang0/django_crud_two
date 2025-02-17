@@ -10,7 +10,7 @@ def getEmployees(request):
 
 def createEmployee(request):
     if request.method=="POST":
-        form = EmployeeForm(request.POST)
+        form = EmployeeForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('list')
@@ -22,16 +22,24 @@ def createEmployee(request):
 def updateEmployee(request,pk):
     employee = get_object_or_404(Employee,employee_id=pk)
     if request.method == "POST":
-        form = EmployeeForm(request.POST,instance=employee)
+        form = EmployeeForm(request.POST,request.FILES,instance=employee)
         if request.method == "POST":
             form.save()
             return redirect('list')
     else:
         form = EmployeeForm(instance=employee)
-    return render(request,'update.html',{'form':form})
+    return render(request,'employee/update.html',{'form':form})
 
-def deleteEmployee(request,pk):
+# def deleteEmployee(request,pk):
+#     employee = get_object_or_404(Employee,employee_id=pk)
+#     if request.method == "POST":
+#         employee.delete()
+#     return redirect('list')
+
+
+def deleteEmployee(request,pk): 
+    # employee = Employee.objects.get(id=pk)
     employee = get_object_or_404(Employee,employee_id=pk)
     if request.method == "POST":
         employee.delete()
-        return redirect('list')
+    return redirect('list')
