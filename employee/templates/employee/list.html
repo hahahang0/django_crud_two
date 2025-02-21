@@ -2,7 +2,7 @@
 {% block title %} Employee List {% endblock title %}
 {% block content  %}
 <div class="container-md mt-4">
-    <a class="btn btn-primary btn-sm mb-3 float-right" href="{% url 'createEmp' %}"> + Create Employee</a>
+    <a class="btn btn-primary btn-sm mb-3 float-end" href="{% url 'createEmp' %}"> + Create Employee</a>
     <table class="table table-stripped">
         <thead>
             <tr>
@@ -55,7 +55,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from .models import Employee
 from django.shortcuts import redirect,render,get_object_or_404
 from .forms import EmployeeForm
@@ -43,3 +43,6 @@ def deleteEmployee(request,pk):
     if request.method == "POST":
         employee.delete()
     return redirect('list')
+
+def globalView(request):
+    return render(request,'employee/global.html')

@@ -7,7 +7,7 @@ class EmployeeForm(forms.ModelForm):
         fields = ['employee_name','employee_email','employee_contact','employee_address','employee_image']
 
         # def clean_employee_image(self):
-        #     image = self.cleaned_data.get("employee_image")
+        #     pimage = self.cleaned_data.get("employee_image")
         #     if image:
         #         max_size = 2 * 1024 * 1024  
         #         if image.size > max_size:
