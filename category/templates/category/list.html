@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %} Category List {% endblock title %}
+{% block content  %}
+<div class="container-md mt-4">
+    <a class="btn btn-primary btn-sm mb-3 float-end" href="{% url 'create_category' %}"> + Create Category</a>
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th scope="col">S.N</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Category Image</th>
+                <th scope="col">Actions</th>
+                
+            </tr>
+  </thead>
+  <tbody>
+    {% for category in categories %}
+    
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        
+         <td>{{ category.category_name }}</td>
+         <td>{{ category.category_image }}</td>
+        <td>
+            <a href="{% url 'update_category' category.category_id %}" class="btn btn-sm btn-success">Edit</a>
+            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal_{{category.pk}}">Delete</button>
+        </td>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal_{{category.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this Category ?
+            </div>
+            <div class="modal-footer">
+                <form action="{% url 'delete_category' category.category_id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+                
+            </div>
+            </div>
+        </div>
+        </div>
+
+        
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock content %}

@@ -20,7 +20,7 @@ from employee import views
 from django.conf import settings
 from django.conf.urls.static import static 
 from books import views 
-
+from category import views
 from Branch import views
 
 urlpatterns = [
@@ -29,6 +29,7 @@ urlpatterns = [
     path('',include('employee.urls')),
     path('books/',include('books.urls')),
     path('branch/',include('Branch.urls')),
+    path('category/',include('category.urls')),
   
     # path('',)
 ]

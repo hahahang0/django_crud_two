@@ -16,9 +16,20 @@
     </button>
     <div class="" id="navbarSupportedContent">
       <ul class="navbar-nav flex gap-2">
-        <li class=""><a href="{% url 'list' %}" style="text-decoration: none; color:#232323;">Employee</a></li>
-        <li class=""><a href="{% url 'books_list' %}" style="text-decoration: none; color:#232323;">Books</a></li>
-        <li class=""><a href="{% url 'books_list' %}" style="text-decoration: none; color:#232323;">Products</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Products</a></li>
+            <li><a class="dropdown-item" href="{% url 'branch_list' %}">Branch</a></li>
+            <li><a class="dropdown-item" href="{% url 'category_list' %}">Product Category</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'list' %}" style="text-decoration: none; color:#232323;">Employee</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'books_list' %}" style="text-decoration: none; color:#232323;">Books</a></li>
+        <!-- <li class=""><a href="{% url 'books_list' %}" style="text-decoration: none; color:#232323;">Products</a></li> -->
+          
        
         </ul>
       
