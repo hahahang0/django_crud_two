@@ -11,6 +11,9 @@ class Books(models.Model):
     book_page = models.IntegerField(null=True,blank=True)
     book_publications = models.CharField(max_length=200,null=True,blank=True)
     book_image = models.FileField(upload_to="books/",null=True,blank=True,validators=[file_size])
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):

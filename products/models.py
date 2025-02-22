@@ -19,6 +19,10 @@ class Products(models.Model):
     total_price_with_vat = models.FloatField()
     GC_number = models.CharField(max_length=50)
     product_details = models.CharField(max_length=500)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(auto_now=True)
+    
     # created_at = models.DateTimeField()
 
     def __str__(self):

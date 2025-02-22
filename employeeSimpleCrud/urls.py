@@ -30,6 +30,7 @@ urlpatterns = [
     path('books/',include('books.urls')),
     path('branch/',include('Branch.urls')),
     path('category/',include('category.urls')),
+    path('products/',include('products.urls')),
   
     # path('',)
 ]
