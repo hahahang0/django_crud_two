@@ -2,12 +2,30 @@ from django.db import models
 
 # Create your models here.
 
+
+class Category(models.Model):
+    category_name = models.CharField(max_length=255)
+
+    class Meta:
+
+        db_table = "category"  # This tells Django to use the existing table
+
+
+class Branch(models.Model):
+    branch_name = models.CharField(max_length=255)
+
+    class Meta:
+
+        db_table = "branch"  # This tells Django to use the existing table
+
+
 class Products(models.Model):
     product_id = models.AutoField(primary_key = True)
-    product_category = models.IntegerField()
+  
+    product_category = models.ForeignKey("category.Category", on_delete=models.CASCADE, db_column="product_category")
+    branch = models.ForeignKey("Branch.Branch", on_delete=models.CASCADE, db_column="branch_id")
     product_name = models.CharField(max_length=200)
     supplier_name = models.CharField(max_length = 200)
-    branch = models.IntegerField()
     product_code = models.CharField(max_length=20)
     quantity = models.IntegerField()
     stock_alert = models.IntegerField()
